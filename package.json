@@ -1,0 +1,38 @@
+{
+  "name": "metator",
+  "version": "0.0.1",
+  "description": "Getting information about video files from a torrent and local files.",
+  "keywords": [
+    "info",
+    "information",
+    "video",
+    "torrent",
+    "magnet",
+    "file",
+    "files",
+    "gulfstream"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GulfStreamJS/metator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GulfStreamJS/metator/issues"
+  },
+  "homepage": "https://gulfstream.to",
+  "dependencies": {
+    "parse-torrent": "latest",
+    "file-exists": "latest",
+    "mime-types": "latest",
+    "read-chunk": "latest",
+    "webtorrent": "latest",
+    "file-type": "latest"
+  },
+  "devDependencies": {
+    "mocha": "latest"
+  }
+}
