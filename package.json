@@ -1,6 +1,6 @@
 {
   "name": "metator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Getting information about video files from a torrent and local files.",
   "keywords": [
     "info",
