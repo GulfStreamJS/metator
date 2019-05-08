@@ -11,8 +11,8 @@ const fs = require('fs');
 const info_about_video = input => {
     return new Promise(resolve => {
         if (fe.sync(input)) {
-            let {mime} = ft(rc.sync(input, 0, ft.minimumBytes));
-            if (mime && /video/i.test(mime)) {
+            let m = ft(rc.sync(input, 0, ft.minimumBytes));
+            if (m && m.mime && /video/i.test(m.mime)) {
                 let item = {};
                 let {size} = fs.statSync(input);
                 item.type = 'video';
