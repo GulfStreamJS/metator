@@ -15,10 +15,9 @@ const info_about_video = input => {
             if (m && m.mime && /video/i.test(m.mime)) {
                 let item = {};
                 let {size} = fs.statSync(input);
-                item.type = 'video';
                 item.path = input;
                 item.size = size;
-                item.name = pa.basename(input);
+                item.file = pa.basename(input);
                 item.sha1 = cr
                     .createHash('sha1')
                     .update(fs.readFileSync(input))
@@ -74,15 +73,15 @@ const get_episode_by_name = name => {
         }
     }
     if (seasons && seasons[1]) {
-        res.season = parseInt(seasons[1]).toString();
+        res.season = parseInt(seasons[1]);
     }
     if (episodes && episodes[2]) {
         if (episodes[1] && !res.season) {
-            res.season = parseInt(episodes[1]).toString();
+            res.season = parseInt(episodes[1]);
         }
-        res.episode = parseInt(episodes[2]).toString();
+        res.episode = parseInt(episodes[2]);
     }
-    return (res.season || res.episode) ? res : {};
+    return (typeof res.season !== 'undefined' || typeof res.episode !== 'undefined') ? res : {};
 };
 
 const get_episode_by_torrent = torrent => {
@@ -106,12 +105,11 @@ const get_episode_by_torrent = torrent => {
             clearInterval(meta);
             t.files.forEach(info => {
                 let item = {};
-                item.type = 'torrent';
                 item.size = info.length || '';
-                item.name = info.name || '';
+                item.file = info.name || '';
                 item.hash = info._torrent.infoHash || '';
-                if (!is_video_by_name(item.name)) return {};
-                item = {...item, ...get_episode_by_name(item.name)};
+                if (!is_video_by_name(item.file)) return {};
+                item = {...item, ...get_episode_by_name(item.file)};
                 list.push(item);
             });
             try {
@@ -131,7 +129,7 @@ const is_video_by_name = name => {
 const is_video = input => {
     return info_about_video(input)
         .then(list => {
-            if (list && list.length && list[0].type === 'video') {
+            if (list && list.length && list[0].sha1) {
                 return Promise.resolve(true);
             }
             return Promise.resolve(false);
@@ -141,7 +139,7 @@ const is_video = input => {
 const is_torrent = input => {
     return info_about_video(input)
         .then(list => {
-            if (list && list.length && list[0].type === 'torrent') {
+            if (list && list.length && list[0].hash) {
                 return Promise.resolve(true);
             }
             return Promise.resolve(false);

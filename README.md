@@ -49,10 +49,9 @@ metator.isvt('6B!@#$%^5B').then(res => {
 ```js
 metator.info('./bunny.m4v').then(res => {
     console.log(res); 
-    // [ { type: 'video',
-    //     path: './bunny.m4v',
+    // [ { path: './bunny.m4v',
     //     size: 3889885,
-    //     name: 'bunny.m4v',
+    //     file: 'bunny.m4v',
     //     sha1: '2951247a448b6123494a039623bde6b9f79603ed' } ]
 });
 ```
@@ -62,24 +61,21 @@ metator.info('./bunny.m4v').then(res => {
 ```js
 metator.info('https://archive.org/download/Colgate-Comedy-Hour-S6E1/Colgate-Comedy-Hour-S6E1_archive.torrent').then(res => {
     console.log(res);
-    //[ { type: 'torrent',
-    //    size: 1444438016,
-    //    name: 'ColgateComedyHourS6E1.mpg',
+    //[ { size: 1444438016,
+    //    file: 'ColgateComedyHourS6E1.mpg',
     //    hash: '4df210f9e64d63193e41bcfbb7e3b5c540a1e874',
-    //    season: '6',
-    //    episode: '1' },
-    //  { type: 'torrent',
-    //    size: 277512087,
-    //    name: 'ColgateComedyHourS6E1.ogv',
+    //    season: 6,
+    //    episode: 1 },
+    //  { size: 277512087,
+    //    file: 'ColgateComedyHourS6E1.ogv',
     //    hash: '4df210f9e64d63193e41bcfbb7e3b5c540a1e874',
-    //    season: '6',
-    //    episode: '1' },
-    //  { type: 'torrent',
-    //    size: 257035508,
-    //    name: 'ColgateComedyHourS6E1_512kb.mp4',
+    //    season: 6,
+    //    episode: 1 },
+    //  { size: 257035508,
+    //    file: 'ColgateComedyHourS6E1_512kb.mp4',
     //    hash: '4df210f9e64d63193e41bcfbb7e3b5c540a1e874',
-    //    season: '6',
-    //    episode: '1' } ]
+    //    season: 6,
+    //    episode: 1 } ]
 });
 ```
 
