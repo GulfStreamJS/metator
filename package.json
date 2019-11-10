@@ -1,6 +1,6 @@
 {
   "name": "metator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Getting information about video files from a torrent and local files.",
   "main": "index.js",
   "keywords": [
@@ -26,14 +26,14 @@
   },
   "homepage": "https://gulfstream.to",
   "dependencies": {
-    "parse-torrent": "6.1.2",
+    "parse-torrent": "7.0.1",
     "file-exists": "5.0.1",
     "mime-types": "2.1.24",
     "read-chunk": "3.2.0",
-    "webtorrent": "0.103.1",
-    "file-type": "11.0.0"
+    "webtorrent": "0.107.16",
+    "file-type": "12.4.0"
   },
   "devDependencies": {
-    "mocha": "6.1.4"
+    "mocha": "6.2.2"
   }
 }
